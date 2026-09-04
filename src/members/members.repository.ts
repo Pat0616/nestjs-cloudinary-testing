@@ -29,6 +29,7 @@ export class MembersRepository{
     Name: string,
     Tier: string,
     Username: string,
+    ProfilePic: Express.Multer.File,
     Birthday: Date,
     Summary: string,
     Description: string,
@@ -38,17 +39,69 @@ export class MembersRepository{
     Interests: string,
     Aspirations: string,
     Reputation: string,
-    ProfilePic: Express.Multer.File,
     ) //data still needs to be defined
     {
         const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
        // code for creating member in Baserow with photourl
+        
+       return this.baserowClient.createRow({
+        10603296: MemberId,
+        10603297: Name,
+        10603298: Tier,
+        10603649: Username,
+        10605740: url,
+        10603851: Birthday,
+        10603852: Summary,
+        10603853: Description,
+        10603893: IGPs,
+        10603950: Projects,
+        10603951: Skills,
+        10603952: Interests,
+        10604055: Aspirations,
+        10604075: Reputation
+       })
 
     }
 
-    async updateMember()
-    {
 
+    async updateMember(
+    MemberId: string,
+    Name: string,
+    Tier: string,
+    Username: string,
+    ProfilePic: Express.Multer.File,
+    Birthday: Date,
+    Summary: string,
+    Description: string,
+    IGPs: string,
+    Projects: string,
+    Skills: string,
+    Interests: string,
+    Aspirations: string,
+    Reputation: string,
+    )
+    {
+        const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
+       // code for creating member in Baserow with photourl
+
+       this.baserowClient.updateRow(MemberId,
+        {
+            10603296: MemberId,
+            10603297: Name,
+            10603298: Tier,
+            10603649: Username,
+            10605740: url,
+            10603851: Birthday,
+            10603852: Summary,
+            10603853: Description,
+            10603893: IGPs,
+            10603950: Projects,
+            10603951: Skills,
+            10603952: Interests,
+            10604055: Aspirations,
+            10604075: Reputation
+        }
+       )
     }
 
 
