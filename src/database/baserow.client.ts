@@ -44,9 +44,9 @@ export class BaserowClient {
     return response.json();
   }
 
-  async getRow(id: number) {
+  async getRow(MemberId: string) {
     const response = await fetch(
-      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${id}/`,
+      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${MemberId}/`,
       {
         headers: {
           Authorization: `Token ${this.token}`,
@@ -86,11 +86,11 @@ export class BaserowClient {
   }
 
   async updateRow(
-    id: number,
+    MemberId: string,
     data: Record<string, unknown>,
   ) {
     const response = await fetch(
-      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${id}/`,
+      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${MemberId}/`,
       {
         method: "PATCH",
         headers: {
@@ -110,9 +110,9 @@ export class BaserowClient {
     return response.json();
   }
 
-  async deleteRow(id: number) {
+  async deleteRow(MemberId: string) {
     const response = await fetch(
-      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${id}/`,
+      `${this.baseUrl}/api/database/rows/table/${this.tableId}/${MemberId}/`,
       {
         method: "DELETE",
         headers: {
