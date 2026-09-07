@@ -43,6 +43,7 @@ export class MembersRepository{
     {
         const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
        // code for creating member in Baserow with photourl
+        console.log("Creating member with ID:", MemberId);
         
        return this.baserowClient.createRow({
         10603296: MemberId,
@@ -83,7 +84,7 @@ export class MembersRepository{
     {
         const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
        // code for creating member in Baserow with photourl
-
+        console.log("Updating member with ID:", MemberId);
        this.baserowClient.updateRow(MemberId,
         {
             10603296: MemberId,

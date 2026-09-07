@@ -12,7 +12,7 @@ import {
 import { MembersService } from "./members.service.js";
 import { FileInterceptor } from "@nestjs/platform-express/multer/interceptors/index.js";
 
-@Controller()
+@Controller('members')
 export class MembersController {
     constructor(private readonly MemberService: MembersService) {}
 
