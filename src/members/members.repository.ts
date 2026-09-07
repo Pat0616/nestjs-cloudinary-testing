@@ -67,14 +67,14 @@ export class MembersRepository{
                 field_10603649: Username,
                 field_10605740: url,
                 field_10603851: Birthday,
-                field_10603852: Summary,
-                field_10603853: Description,
-                field_10603893: IGPs,
-                field_10603950: Projects,
-                field_10603951: Skills,
-                field_10603952: Interests,
-                field_10604055: Aspirations,
-                field_10604075: Reputation
+                field_10656471: Summary,
+                field_10603893: Description,
+                field_10603951: IGPs,
+                field_10603952: Projects,
+                field_10604055: Skills,
+                field_10604075: Interests,
+                field_10604076: Aspirations,
+                field_10604078: Reputation
        })
 
     }
@@ -100,7 +100,7 @@ export class MembersRepository{
         const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
        // code for creating member in Baserow with photourl
         console.log("Updating member with ID:", MemberId);
-       this.baserowClient.updateRow(MemberId,
+    return this.baserowClient.updateRow(MemberId,
         {
         field_10603296: MemberId,
         field_10603297: Name,
@@ -108,14 +108,14 @@ export class MembersRepository{
         field_10603649: Username,
         field_10605740: url,
         field_10603851: Birthday,
-        field_10603852: Summary,
-        field_10603853: Description,
-        field_10603893: IGPs,
-        field_10603950: Projects,
-        field_10603951: Skills,
-        field_10603952: Interests,
-        field_10604055: Aspirations,
-        field_10604075: Reputation
+        field_10656471: Summary,
+        field_10603893: Description,
+        field_10603951: IGPs,
+        field_10603952: Projects,
+        field_10604055: Skills,
+        field_10604075: Interests,
+        field_10604076: Aspirations,
+        field_10604078: Reputation
         }
        )
     }

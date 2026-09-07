@@ -77,10 +77,15 @@ export class BaserowClient {
     );
 
     if (!response.ok) {
-      throw new Error(
-        `Baserow request failed: ${response.status} ${response.statusText}`,
-      );
-    }
+        const errorBody = await response.text();
+
+        console.error("Baserow error response:", errorBody);
+
+        throw new Error(
+          `Baserow request failed: ${response.status} ${response.statusText}`,
+        );
+      }
+
 
     return response.json();
   }
