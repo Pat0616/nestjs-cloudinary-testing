@@ -43,23 +43,38 @@ export class MembersRepository{
     {
         const { url, publicId } = await this.cloudinaryClient.upload(ProfilePic);
        // code for creating member in Baserow with photourl
-        console.log("Creating member with ID:", MemberId);
-        
+        console.log("Creating member with ID:", MemberId, " and data:", {
+            MemberId,
+            Name,
+            Tier,
+            Username,
+            url,
+            Birthday,
+            Summary,
+            Description,
+            IGPs,
+            Projects,
+            Skills,
+            Interests,
+            Aspirations,
+            Reputation
+        });
+
        return this.baserowClient.createRow({
-        10603296: MemberId,
-        10603297: Name,
-        10603298: Tier,
-        10603649: Username,
-        10605740: url,
-        10603851: Birthday,
-        10603852: Summary,
-        10603853: Description,
-        10603893: IGPs,
-        10603950: Projects,
-        10603951: Skills,
-        10603952: Interests,
-        10604055: Aspirations,
-        10604075: Reputation
+                field_10603296: MemberId,
+                field_10603297: Name,
+                field_10603298: Tier,
+                field_10603649: Username,
+                field_10605740: url,
+                field_10603851: Birthday,
+                field_10603852: Summary,
+                field_10603853: Description,
+                field_10603893: IGPs,
+                field_10603950: Projects,
+                field_10603951: Skills,
+                field_10603952: Interests,
+                field_10604055: Aspirations,
+                field_10604075: Reputation
        })
 
     }
@@ -87,20 +102,20 @@ export class MembersRepository{
         console.log("Updating member with ID:", MemberId);
        this.baserowClient.updateRow(MemberId,
         {
-            10603296: MemberId,
-            10603297: Name,
-            10603298: Tier,
-            10603649: Username,
-            10605740: url,
-            10603851: Birthday,
-            10603852: Summary,
-            10603853: Description,
-            10603893: IGPs,
-            10603950: Projects,
-            10603951: Skills,
-            10603952: Interests,
-            10604055: Aspirations,
-            10604075: Reputation
+        field_10603296: MemberId,
+        field_10603297: Name,
+        field_10603298: Tier,
+        field_10603649: Username,
+        field_10605740: url,
+        field_10603851: Birthday,
+        field_10603852: Summary,
+        field_10603853: Description,
+        field_10603893: IGPs,
+        field_10603950: Projects,
+        field_10603951: Skills,
+        field_10603952: Interests,
+        field_10604055: Aspirations,
+        field_10604075: Reputation
         }
        )
     }
